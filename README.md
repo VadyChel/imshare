@@ -1,6 +1,9 @@
 # imshare
 Web service for upload different files
 
+## Preview
+<img src="https://i.imgur.com/y7Bx7uA.png"/>
+
 ## Install
 #### 1. Clone repository
 ```bash
