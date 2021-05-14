@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}
+Imshare
+{% endblock %}
+
+{% block body %}
+<div class="container main-block">
+    <div class="error-alert alert hidden" id="errorAlert"></div>
+    <div class="successful-alert alert hidden" id="successfulAlert"></div>
+
+    <h1 class="mb-4">Upload new file</h1>
+    <form id='form'>
+        <input
+            class="input mb-4"
+            type="text"
+            placeholder="Enter your api key"
+            id="inputApiKey"
+        />
+        <input
+            class="input"
+            type="text"
+            placeholder="Enter filename"
+            id="inputFilename"
+        />
+        <div class="mt-4" style="width: 100%; display: flex">
+            <label id="filenameLabel" for="fileInput" class="button mr-4" style="position: relative">
+                <span class="label-text">Choose file</span>
+                <span class="label-for-label" id="labelForLabel">0</span>
+            </label>
+            <input
+                name="file"
+                type="file"
+                id="fileInput"
+                accept="image/png,image/gif,image/jpeg,text/plain"
+                hidden
+            >
+            <div><button type="button" class="button" onclick="uploadFile()">Upload</button></div>
+
+            <span class="spacer"></span>
+
+            <div><button type="button" class="button delete-button" onclick="deleteFile()">Delete</button></div>
+        </div>
+    </form>
+</div>
+
+<script src="../static/js/main.js"></script>
+{% endblock %}

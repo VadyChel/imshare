@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ filename }}
+{% endblock %}
+
+{% block body %}
+<div class="container main-block">
+    <h1>{{filename}}</h1>
+    <div class="lines-content">
+        {% for index, line in enumerate(lines) %}
+            <div class="line">
+                <span class="line-index">{{index+1}}</span>
+                <span
+                    class="line-content"
+                    id="{{index}}"
+                >{{line}}</span><br/>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    let clickedItem;
+
+    for (const element of document.getElementsByClassName("line-content")){
+        element.addEventListener('click', onClick);
+    }
+
+    function onClick (e) {
+        if (clickedItem) {
+            document.getElementById(clickedItem).classList.remove('line-active')
+        }
+        clickedItem = e.target.id
+        document.getElementById(e.target.id).classList.add('line-active')
+    }
+</script>
+{% endblock %}

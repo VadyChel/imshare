@@ -1,0 +1,156 @@
+body {
+    font-family: 'Roboto', sans-serif !important;
+    color: #333 !important;
+    background-color: #2e2e2e !important;
+}
+
+.main-block{
+    background-color: #808080;
+    border-radius: 2px;
+    margin-top: 4em;
+    padding: 1.5em 1em;
+}
+
+.spacer{
+    flex-grow: 1 !important;
+}
+
+/* Main page */
+
+
+.button{
+    padding: 5px 10px;
+    background-color: #333;
+    border-radius: 2px;
+    color: #ccc;
+    border: none;
+    transition: 0.2s;
+    font-size: 1.2em;
+}
+
+.button:hover{
+    background-color: #ccc;
+    border-radius: 2px;
+    color: #333;
+}
+
+.button:focus{
+    outline: none;
+}
+
+.delete-button{
+    background-color: #ba5757;
+    color: #720808;
+}
+
+.delete-button:hover{
+    background-color: #720808;
+    color: #ba5757;
+}
+
+.input{
+    border: none;
+    box-shadow: #00000059 0 5px 10px;
+    background-color: #333;
+    color: #ccc;
+    border-radius: 2px;
+    padding: 5px 10px;
+    width: 100%;
+    transition: 0.2s;
+    font-size: 1.2em;
+}
+
+.input:focus{
+    outline: none;
+    background-color: #373737;
+    box-shadow: #00000059 0 5px 20px;
+}
+
+.label-for-label{
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #444;
+    color: #ccc;
+    transition: 0.2s;
+}
+
+#filenameLabel:hover > .label-for-label{
+    background-color: #a7a7a7;
+    color: #404040;
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 3px;
+    margin-bottom: 1%;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.error-alert {
+    border-color: #db3737 !important;
+    background-color: #ba5757;
+    color: #720808;
+}
+
+.successful-alert {
+    border-color: #37db47 !important;
+    background-color: #57ba64;
+    color: #08720d;
+}
+
+.hidden{
+    display: none;
+}
+
+.image-url{
+    text-decoration: none !important;
+    transition: 0.2s;
+}
+
+/* File preview */
+
+.lines-content{
+    margin-left: 4%;
+}
+
+.line{
+    height: 24px;
+    margin: 5px 0;
+    position: relative;
+}
+
+.line-index{
+    z-index: 2;
+    position: absolute;
+    left: -30px;
+    opacity: 0.7;
+}
+
+.line-content{
+    color: #202020;
+    min-height: 100%;
+    display: block;
+    width: 100%;
+    opacity: 0.7;
+    padding: 1px 5px;
+    z-index: 2;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    transition: 0.2s;
+}
+
+.line-active{
+    color: #ccc;
+    border-radius: 2px;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 1;
+}
