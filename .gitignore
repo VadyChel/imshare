@@ -140,4 +140,3 @@ cython_debug/
 
 .idea/
 /imshare/files
-/imshare/config.py

@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 
-class ImageInResponse(BaseModel):
+class File(BaseModel):
     id: int
     filename: str
     name: str
@@ -11,7 +11,7 @@ class ImageInResponse(BaseModel):
         orm_mode = True
 
 
-class ImageInRequest(BaseModel):
+class FileUpload(BaseModel):
     filename: str
     name: str
     uploaded_by: str

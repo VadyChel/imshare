@@ -5,9 +5,7 @@ from fastapi.staticfiles import StaticFiles
 from .routers import images, html
 from imshare.database import engine, Base
 
-
-Base.metadata.create_all(bind=engine)
-app = FastAPI()
+app = FastAPI(openapi_url=None)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -17,7 +15,14 @@ app.add_middleware(
 )
 app.include_router(images.router)
 app.include_router(html.router)
+
 files = StaticFiles(directory='imshare/files')
 app.mount('/r', files)
 app.mount('/raw', files)
 app.mount('/static', StaticFiles(directory='imshare/static'), name='static')
+
+
+@app.on_event('startup')
+async def on_startup():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)

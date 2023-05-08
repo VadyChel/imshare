@@ -1,9 +1,9 @@
 from imshare.database import SessionLocal
 
 
-def get_db():
+async def get_db():
     db = SessionLocal()
     try:
         yield db
     finally:
-        db.close()
+        await db.close()
