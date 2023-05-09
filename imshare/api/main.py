@@ -16,9 +16,6 @@ app.add_middleware(
 app.include_router(images.router)
 app.include_router(html.router)
 
-files = StaticFiles(directory='imshare/files')
-app.mount('/r', files)
-app.mount('/raw', files)
 app.mount('/static', StaticFiles(directory='imshare/static'), name='static')
 
 

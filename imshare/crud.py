@@ -54,6 +54,11 @@ async def get_files_names(db: AsyncSession, api_key: str) -> list[str]:
     return [item[0] for item in resp.all()]
 
 
+async def get_files(db: AsyncSession, api_key: str) -> list[schemas.File]:
+    resp = await db.execute(select(models.File).where(models.File.uploaded_by == api_key))
+    return [item[0] for item in resp.all()]
+
+
 async def get_api_key_limit(db: AsyncSession, api_key: str) -> int | None:
     resp = await db.execute(select(models.ApiKey.max_file_length).where(models.ApiKey.api_key == api_key))
     if (resp_first := resp.first()) is None:

@@ -76,6 +76,18 @@ async def delete_file(
     return Response(status_code=201)
 
 
+@router.get("/images")
+async def get_images(authorization: str, request: Request, db: AsyncSession = Depends(dependencies.get_db)):
+    if authorization not in await crud.get_api_keys(db=db):
+        raise HTTPException(status_code=403, detail='Invalid api key was provided')
+
+    files = await crud.get_files(db=db, api_key=authorization)
+
+    return templates.TemplateResponse('images.html', {
+        'request': request, 'files': files
+    })
+
+
 @router.get('/{filename}')
 async def get_image(request: Request, filename: str, db: AsyncSession = Depends(dependencies.get_db)):
     db_file = await crud.get_file(db=db, filename=filename)

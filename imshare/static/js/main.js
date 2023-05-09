@@ -77,6 +77,15 @@ function validate (deleteMode=false) {
     }
 }
 
+function viewImages() {
+    const inputApiKeyValue = document.getElementById('inputApiKey').value
+    if (!inputApiKeyValue) {
+        return setError('Provide an api key')
+    }
+
+    window.location.href = `/images?authorization=${inputApiKeyValue}`
+}
+
 function setError (text) {
     const errorAlert = document.getElementById('errorAlert')
     document.getElementById('successfulAlert').classList.add('hidden')
