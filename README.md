@@ -3,6 +3,7 @@ Web service for upload different files
 
 ## Preview
 <img src="https://i.imgur.com/y7Bx7uA.png"/>
+<img src="https://i.imgur.com/ZyrrdIo.png"/>
 
 ## Install
 #### 1. Clone repository
@@ -32,4 +33,4 @@ $ python3 runner.py
 $ python runner.py
 ```
 
-### Change example config `imshare/config.example.py` for your preferred
+### Add config in .env file with parametrs from `imshare/config/configreader.py` for your preferred
