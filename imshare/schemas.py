@@ -15,3 +15,7 @@ class FileUpload(BaseModel):
     filename: str
     name: str
     uploaded_by: str
+
+
+class CreatedFile(BaseModel):
+    filename: str

@@ -15,12 +15,13 @@ function uploadFile() {
         body: formData,
         headers: { authorization: data.apiKey }
     })
-        .then(async function (response) {
+        .then(async (response) => {
+            const json = await response.json()
             if (response.status >= 300) {
-                return setError((await response.json()).detail)
+                return setError(json.detail)
             }
             successfulSend(
-                `<span>File was uploaded successful. <a href="/${data.filename}" class="image-url">File url</a></span>`
+                `<span>File was uploaded successful. <a href="/${json.filename}" class="image-url">File url</a></span>`
             )
         })
 }
